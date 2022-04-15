@@ -1,6 +1,5 @@
 # CSE470_Project_19101459
 <h2>CSE470 - SOFTWARE ENGINEERING PROJECT.<h2>
-
 <h3><b>Project name: Honya | One stop Manga store</h3></b>
 
 
