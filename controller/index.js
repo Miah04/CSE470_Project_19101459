@@ -29,7 +29,7 @@ app.use(session(
 // app.use(require("./routes/user"))
 
 app.get('/',(req,res)=>{
-    console.log("i am home");
+    // console.log("i am home");
     res.render("index")
 })
 //routing to all the other controllers from here->
