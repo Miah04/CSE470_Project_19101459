@@ -78,4 +78,29 @@ router.post('/remove',async (req,res)=>{
         res.render("shoppingCart",{success:"One entry successfully deleted",details:all})
     }
 })
+router.post('/payment',async (req,res)=>{
+    if(!req.session.username){
+        
+        req.session.destroy(err=>{
+            res.render("account")
+        })
+    }
+    else{
+        
+        res.render("payment",{ success: "Payment Successful. You will recieve the Manga within 1-2 working days"})
+    }
+    
+})
+router.get('/payment',async (req,res)=>{
+    if(!req.session.username){
+        
+        req.session.destroy(err=>{
+            res.render("account")
+        })
+    }
+    else{
+        res.render("payment")
+    }
+    
+})
 module.exports = router
