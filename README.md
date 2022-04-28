@@ -21,7 +21,8 @@
   <li>Edit account (Change password) </li>
   <li>Search Manga by ANY keyword </li>
   <li>Filter Manga by name </li>
-  <li>Filter Manga by price </li>
+  <li>Confirm and Select Payment option </li>
+
 </ol>
 <h3><b>Admin Features:</h3><b>
     <ol>
