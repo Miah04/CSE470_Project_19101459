@@ -1,7 +1,6 @@
 const express=require("express")
-const { acceptsLanguages } = require("express/lib/request")
 const router= express.Router()
-
+const { acceptsLanguages } = require("express/lib/request")
 const userData= require("../../model/userData")
 const mangaDetails= require("../../model/mangadetails")
 const cartDetails= require("../../model/cartDetails")
@@ -26,6 +25,7 @@ router.post('/register',async (req,res)=>{
 })
 
 router.post('/LandingPage',async (req,res)=>{
+    
     const filter={};
     const userName=req.body.username
     const all=await mangaDetails.find(filter)
@@ -38,7 +38,9 @@ router.post('/LandingPage',async (req,res)=>{
             cartDetails.deleteMany({ username: userName }, err => {
                 console.log("Cart refreshed")
             })
+            
             res.render("LandingPage",{details:all})
+            
         }
         else if(req.body.password==user.password && user.typed=="admin" && req.body.type=="Admin" ){
             req.session.username=userName
@@ -105,6 +107,7 @@ router.post('/editAccount', async (req,res)=>{
 
 router.get('/LandingPage',async (req,res)=>{
     console.log("in");
+    
     if(!req.session.username){
         req.session.destroy(err=>{
             res.render("account")
@@ -113,7 +116,8 @@ router.get('/LandingPage',async (req,res)=>{
     }
     const filter={};
     const all=await mangaDetails.find(filter)
-    res.render("LandingPage",{details:all})   
+    res.render("LandingPage",{details:all})
+    
 })
     
 router.get('/adminLanding',async (req,res)=>{
@@ -170,4 +174,6 @@ router.post('/logout', async (req,res)=>{
             res.render("account")    
     })
 })
+
+
 module.exports = router

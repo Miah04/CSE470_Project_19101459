@@ -1,6 +1,6 @@
 const express= require("express")
 const app= express()
-const mongoose=require("mongoose")
+// const mongoose=require("mongoose")
 const path=require("path")
 const bodyParser=require("body-parser")
 const session = require("express-session")
@@ -43,16 +43,16 @@ app.use('/', viewMangaRouter)
 const cartRouter= require("./routes/cart")
 app.use('/', cartRouter)
 //connecting to local database
-mongoose.connect("mongodb://0.0.0.0:27017/honya",{useNewUrlParser:true})
-.then(()=>{
-    app.listen(3000,()=>{
-        console.log("server running in 3000");
-    })
+// mongoose.connect("mongodb://0.0.0.0:27017/honya",{useNewUrlParser:true})
+// .then(()=>{
+//     app.listen(3000,()=>{
+//         console.log("server running in 3000");
+//     })
     
-})
+// })
    
-const con=mongoose.connection
-con.on("open",()=>{
-    console.log("database connected");
-})
-
+// const con=mongoose.connection
+// con.on("open",()=>{
+//     console.log("database connected");
+// })
+module.exports = app
